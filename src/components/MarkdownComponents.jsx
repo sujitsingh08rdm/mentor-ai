@@ -1,6 +1,3 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { Copy } from "lucide-react";
 import CodeBlock from "./CodeBlock";
 
 export const markdownComponents = {

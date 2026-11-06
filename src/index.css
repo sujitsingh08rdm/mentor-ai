@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+.sidebar-topics-scrollbar {
+  scrollbar-color: rgb(255 255 255 / 45%) rgb(255 255 255 / 12%);
+  scrollbar-width: thin;
+}
+
+.sidebar-topics-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-topics-scrollbar::-webkit-scrollbar-track {
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 12%);
+}
+
+.sidebar-topics-scrollbar::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 45%);
+  background-clip: content-box;
+}
+
+.sidebar-topics-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 70%);
+  background-clip: content-box;
+}

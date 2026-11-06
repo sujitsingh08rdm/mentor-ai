@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function CodeBlock({
   language,
@@ -20,7 +18,7 @@ export default function CodeBlock({
   };
 
   return (
-    <div className="my-8 overflow-hidden rounded-2xl border border-slate-800 shadow-2xl">
+    <div className="my-8 overflow-hidden rounded-2xl border border-slate-800 shadow-lg">
 
       {/* Header */}
 
@@ -63,27 +61,9 @@ export default function CodeBlock({
 
       {/* Code */}
 
-      <SyntaxHighlighter
-        language={language}
-        style={oneDark}
-        showLineNumbers
-        wrapLongLines
-        customStyle={{
-          margin: 0,
-          padding: "24px",
-          borderRadius: 0,
-          background: "#282c34",
-          fontSize: "15px",
-        }}
-        codeTagProps={{
-          style: {
-            fontFamily:
-              "JetBrains Mono, Fira Code, monospace",
-          },
-        }}
-      >
-        {code}
-      </SyntaxHighlighter>
+      <pre className="overflow-x-auto bg-[#282c34] p-6 text-sm text-slate-100">
+        <code className={`language-${language} font-mono`}>{code}</code>
+      </pre>
 
     </div>
   );

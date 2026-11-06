@@ -1,0 +1,35 @@
+AI Teacher Client - UI Performance Notes
+
+Previous page jank
+------------------
+- The markdown renderer used react-syntax-highlighter to highlight every code
+  block at runtime. That added substantial JavaScript and rendering work.
+- Large blurred background shapes and backdrop filters caused expensive paint
+  work while scrolling and opening UI.
+- Broad transitions animated more CSS properties than needed.
+- The production JavaScript bundle was about 1.09 MB (about 368 KB gzipped).
+
+Changes made
+------------
+- Replaced runtime syntax highlighting with a lightweight pre/code block and
+  removed the unused react-syntax-highlighter dependency.
+- Removed large background blur effects and unnecessary backdrop filters.
+- Replaced broad transitions with targeted color transitions.
+- The production JavaScript bundle is now about 458 KB (about 143 KB gzipped).
+
+Topic modal jank
+----------------
+- The modal backdrop used backdrop-blur-md, forcing the browser to blur the
+  underlying page across the viewport each time the modal appeared.
+- The modal used a very large shadow and animated a scale transform on submit.
+
+Modal adjustments
+-----------------
+- Removed the backdrop blur while retaining the dimmed overlay.
+- Reduced the modal shadow and restricted field/button transitions to colors.
+- Replaced the submit button's scale transform with a brightness hover effect.
+
+Validation
+----------
+- npm run build: passed.
+- npm run lint: passed.
